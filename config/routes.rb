@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :likes
     end
     collection do
       get :favoring
@@ -23,6 +24,5 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
-  get "/users/:id/likes", to: "users#likes"
     
 end

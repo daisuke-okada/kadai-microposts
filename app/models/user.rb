@@ -14,11 +14,12 @@ class User < ApplicationRecord
 	has_many :followings, through: :relationships, source: :follow
 	has_many :reverses_of_relationship, class_name: "Relationship", foreign_key: "follow_id"
 	has_many :followers, through: :reverses_of_relationship, source: :user
+	has_many :faivor, dependent: :destroy
 	
 	def like(other_post)
-		unless self == other_post
+		
 			self.favorites.find_or_create_by(micropost_id: other_post.id)
-		end
+		
 	end 
 	
 	def dislike(other_post)
