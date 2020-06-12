@@ -33,7 +33,6 @@ class UsersController < ApplicationController
     @microposts = @user.favoring.page(params[:page])
     counts(@user)
   end
-  
   def likes
     @user = User.find(params[:id])
     @favorings = @user.favoring.page(params[:page])
