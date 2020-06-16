@@ -12,9 +12,7 @@ Rails.application.routes.draw do
       get :followers
       get :likes
     end
-    collection do
-      get :favoring
-    end
+   
   end
 
   resources :microposts, only: [:create, :destroy] do
